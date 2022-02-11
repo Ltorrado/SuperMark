@@ -30,6 +30,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Script", "Script", "{C83689
 		..\..\..\..\Documents\script-SQLSERVER.sql = ..\..\..\..\Documents\script-SQLSERVER.sql
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuperMarket.Config", "SuperMarket.Config\SuperMarket.Config.csproj", "{4952F40F-7C99-4D71-A0B4-9647CCA77574}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -64,6 +66,10 @@ Global
 		{1FC7FEEF-A181-469F-8D45-1CBC349B1D5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1FC7FEEF-A181-469F-8D45-1CBC349B1D5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1FC7FEEF-A181-469F-8D45-1CBC349B1D5F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4952F40F-7C99-4D71-A0B4-9647CCA77574}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4952F40F-7C99-4D71-A0B4-9647CCA77574}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4952F40F-7C99-4D71-A0B4-9647CCA77574}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4952F40F-7C99-4D71-A0B4-9647CCA77574}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
