@@ -32,13 +32,17 @@ namespace SuperMark.View.Pages.Sales
         }
 
 
-        public  void ShowCartAsync()
+        public async void ShowCartAsync()
         {
             try
             {
-                var resultCreate = _ = DialogService.Show<CartDialog>("",
-                               new DialogParameters { ["viewModel"] = viewModel },
-                               new DialogOptions() { DisableBackdropClick = true, MaxWidth = MaxWidth.Small, FullWidth = true }).Result;
+             await   InvokeAsync(() =>
+                {
+                    var resultCreate =   DialogService.Show<CartDialog>("",
+                             new DialogParameters { ["viewModel"] = viewModel },
+                             new DialogOptions() { DisableBackdropClick = true, MaxWidth = MaxWidth.Small, FullWidth = true }).Result;
+                });
+          
             }
             catch (Exception)
             {

@@ -23,6 +23,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{25BC91FE-B
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SuperMark.Test", "SuperMark.Test\SuperMark.Test.csproj", "{1FC7FEEF-A181-469F-8D45-1CBC349B1D5F}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Config", "Config", "{B6469B97-76A4-4196-9B14-AF4F9E236D14}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Script", "Script", "{C8368909-0A3C-4762-93F8-2CA633992EBC}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\..\..\Documents\script-SQLSERVER.sql = ..\..\..\..\Documents\script-SQLSERVER.sql
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -66,6 +73,7 @@ Global
 		{F58205CD-F386-41CF-B318-CE996359F58C} = {8F132AA2-BF7A-4E91-9092-B8BFCFDB6963}
 		{ED4C83CD-77B5-40D1-AEF3-65C1E69C196D} = {8F132AA2-BF7A-4E91-9092-B8BFCFDB6963}
 		{1FC7FEEF-A181-469F-8D45-1CBC349B1D5F} = {25BC91FE-BAE0-4882-815C-BF620DA66C6D}
+		{C8368909-0A3C-4762-93F8-2CA633992EBC} = {B6469B97-76A4-4196-9B14-AF4F9E236D14}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0B8E6AAA-F2E7-4689-A879-4BDCB4FB4688}

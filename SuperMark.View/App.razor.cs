@@ -27,6 +27,7 @@ namespace SuperMark.View
             }
             else
             {
+             
 
                 var identity = GetClaim( await authenticationStateProvider.GetTokenAsync(),"UserLogin");
                 if(identity == null)
@@ -36,7 +37,7 @@ namespace SuperMark.View
                 }
                 var userLogin = Newtonsoft.Json.JsonConvert.DeserializeObject<User>(identity);
                 context.User = userLogin;
-
+               await InvokeAsync( context.NotifyStateChanged);
                 navigation.NavigateTo("/",false);
             }
 

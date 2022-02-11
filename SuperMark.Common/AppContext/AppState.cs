@@ -12,13 +12,7 @@ namespace SuperMark.Common
 
         private User _User;
         public User User
-        {
-            get { return _User; }
-            set
-            {
-                _User = value;
-                NotifyStateChanged();
-            }
+        {get;set;
         }
   
         public event Action OnChange;
@@ -39,6 +33,6 @@ namespace SuperMark.Common
         }
 
         private void NotifyShowCartChanged() => OnshowCart?.Invoke();
-        private void NotifyStateChanged() => OnChange?.Invoke();
+        public void NotifyStateChanged() => OnChange?.Invoke();
     }
 }

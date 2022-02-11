@@ -12,11 +12,24 @@ namespace SuperMark.View.Shared
         [Inject] AppState appstate { get; set; }
         protected override void OnInitialized()
         {
-            appstate.OnChange += StateHasChanged;
+            appstate.OnChange += OnMyChangeHandler;
         }
         public void Dispose()
         {
-            appstate.OnChange -= StateHasChanged;
+            appstate.OnChange -= OnMyChangeHandler;
+        }
+        private async void OnMyChangeHandler()
+        {
+            // InvokeAsync is inherited, it syncs the call back to the render thread
+            try
+            {
+                await InvokeAsync(StateHasChanged);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
     }

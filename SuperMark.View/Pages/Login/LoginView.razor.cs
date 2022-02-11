@@ -37,16 +37,25 @@ namespace SuperMark.View.Pages.Login
             if (form.IsValid)
             {
                 var token = await viewmodel.Login(user, psw);
-                var result = await TokenProvider.SetTokenAsync(token);
-                if (result)
+                if (!string.IsNullOrEmpty(token))
                 {
-                    var isAutenticated = await TokenProvider.IsAuthenticated();
-                    if (isAutenticated)
+                    var result = await TokenProvider.SetTokenAsync(token);
+                    if (result)
                     {
-                        NavManager.NavigateTo("/", true);
-                        await InvokeAsync(StateHasChanged);
+                        var isAutenticated = await TokenProvider.IsAuthenticated();
+                        if (isAutenticated)
+                        {
+                            NavManager.NavigateTo("/", true);
+                            await InvokeAsync(StateHasChanged);
+                        }
                     }
                 }
+                else
+                {
+                    Snackbar.Configuration.PositionClass = Defaults.Classes.Position.TopRight;
+                    Snackbar.Add("Usuario o contraseña incorrecto", Severity.Warning);
+                }
+              
             }
             await Processing(false);
 

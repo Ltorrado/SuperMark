@@ -17,16 +17,31 @@ namespace SuperMark.View.Shared
         [Inject] SuperMarketStateProvider authenticationStateProvider { get; set; }
         protected override void OnInitialized()
         {
-            appstate.OnChange += StateHasChanged;
+            appstate.OnChange += OnMyChangeHandler;
         }
 
         public void Dispose()
         {
-            appstate.OnChange -= StateHasChanged;
+            appstate.OnChange -= OnMyChangeHandler;
         }
 
+        private async void OnMyChangeHandler()
+        {
+            try
+            {
+                await InvokeAsync(StateHasChanged);
+            }
+            catch (Exception)
+            {
 
-        public async Task logout()
+                throw;
+            }
+            // InvokeAsync is inherited, it syncs the call back to the render thread
+          
+        }
+    
+
+    public async Task logout()
         {
             await authenticationStateProvider.SetTokenAsync(null);
             navigation.NavigateTo("/", true);
