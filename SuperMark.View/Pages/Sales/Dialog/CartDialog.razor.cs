@@ -55,7 +55,7 @@ namespace SuperMark.View.Pages.Sales.Dialog
                     Snackbar.Configuration.PositionClass = Defaults.Classes.Position.TopRight;
                     Snackbar.Add("Compra Existosa, Estamos Preparando el envio", Severity.Success);
                     viewModel.NewProduct = new Common.Model.Product();
-
+                    appstate.SetCounter(0);
                     MudDialog.Close(DialogResult.Ok(true));
                 }
                 await Processing(false);
