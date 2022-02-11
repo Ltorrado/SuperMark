@@ -1,7 +1,7 @@
 ﻿
 @page "/security/account/login"
 @layout CenteredLayout;
-<MudCard>
+<MudCard Style="width:400px;">
 	<MudCardHeader>
 		<CardHeaderAvatar>
 
@@ -11,11 +11,11 @@
 
 		</CardHeaderContent>
 		<CardHeaderActions>
-			<MudIconButton Icon="@Icons.Material.Filled.Settings" Color="Color.Default" />
+		
 		</CardHeaderActions>
 	</MudCardHeader>
 
-	<MudPaper Class="pa-4">
+	<MudPaper Class="pa-5">
 		<MudForm  @ref="form" >
 			<MudTextField T="string" Label="Usuario" @bind-IsValid="@validForm" @bind-Value="@user" Required="true" RequiredError="User name is required!" />
 
