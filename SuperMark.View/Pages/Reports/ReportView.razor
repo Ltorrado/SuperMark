@@ -1,0 +1,21 @@
+﻿@page "/report"
+
+<MudTable Items="@viewmodel.TopSales" Dense="true" Hover="true" Bordered="true" Striped="true">
+	<ToolBarContent>
+		<MudButton Variant="Variant.Outlined" OnClick="(() => TopSaleAsync(true))">Mas vendidos <MudIcon Icon="@Icons.Material.Filled.ArrowCircleUp"></MudIcon></MudButton>
+		<MudButton Variant="Variant.Outlined" OnClick="(() => TopSaleAsync(false))">Menos vendidos <MudIcon Icon="@Icons.Material.Filled.ArrowCircleDown"></MudIcon></MudButton>
+		<MudSpacer />
+
+	</ToolBarContent>
+	<HeaderContent>
+		<MudTh>Producto</MudTh>
+		<MudTh>Cantidad</MudTh>
+	</HeaderContent>
+	<RowTemplate>
+		<MudTd DataLabel="Codigo">@context.Product</MudTd>
+		<MudTd DataLabel="Nombre">@context.Quantity</MudTd>
+
+	</RowTemplate>
+
+</MudTable>
+

@@ -1,0 +1,43 @@
+﻿
+@page "/security/account/login"
+@layout CenteredLayout;
+<MudCard>
+	<MudCardHeader>
+		<CardHeaderAvatar>
+
+		</CardHeaderAvatar>
+		<CardHeaderContent>
+			<MudText Typo="Typo.h6">Login</MudText>
+
+		</CardHeaderContent>
+		<CardHeaderActions>
+			<MudIconButton Icon="@Icons.Material.Filled.Settings" Color="Color.Default" />
+		</CardHeaderActions>
+	</MudCardHeader>
+
+	<MudPaper Class="pa-4">
+		<MudForm  @ref="form" >
+			<MudTextField T="string" Label="Usuario" @bind-IsValid="@validForm" @bind-Value="@user" Required="true" RequiredError="User name is required!" />
+
+			<MudTextField @bind-Value="@psw" T="string" Label="Contraseña"
+										InputType="InputType.Password"
+										Required="true"
+										RequiredError="Password is required!" />
+
+			<div class="d-flex align-center justify-space-between mt-6">
+				@if (_processing)
+				{
+					<MudProgressCircular Color="Color.Primary" Size="Size.Small" Class="ml-auto" Indeterminate="true" />
+				}
+				else
+				{
+
+					<MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="LoginAsync" Class="ml-auto">Ingresar</MudButton>
+				}
+
+			</div>
+		</MudForm>
+	</MudPaper>
+
+
+</MudCard>

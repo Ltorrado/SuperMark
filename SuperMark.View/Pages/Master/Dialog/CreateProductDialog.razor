@@ -1,0 +1,34 @@
+﻿@namespace   SuperMark.View.Pages.Master.Dialog
+<MudDialog>
+	<DialogContent>
+		<MudContainer Style="overflow-y: scroll; max-height: 550px; max-width: 1600px">
+			<MudPaper Class="pa-4">
+				<MudItem xs="12" Class="justify-center pa-4">
+					<MudText Align="Align.Center" Style="font-weight:600" Color="Color.Default">@(viewModel.NewProduct.Id== 0 ? "Agregar Producto":"Modificar Producto")</MudText>
+				</MudItem>
+				<MudForm @bind-IsValid="@success">
+					<MudTextField T="string" Label="Codigo" @bind-Value="viewModel.NewProduct.Code" Required="true" RequiredError="Codigo Es Requerido" />
+					<MudTextField T="string" Label="Nombre" @bind-Value="viewModel.NewProduct.Name" Required="true" RequiredError="Nombre Es Requerido" />
+					<MudTextField T="string" Label="Descripcion"  @bind-Value="viewModel.NewProduct.Description" Required="true" RequiredError="Descripcion es requerida" />
+					<MudNumericField T="decimal" Label="Precio"  @bind-Value="viewModel.NewProduct.Price" Required="true" MaxLength="10" Min="1" RequiredError="Precio Es Requerido" />
+					<MudTextField T="string" Label="Url Imagen" @bind-Value="viewModel.NewProduct.Img" Required="true" RequiredError="Imagen es Requerida" />
+
+				</MudForm>
+			</MudPaper>
+
+
+		</MudContainer>
+	</DialogContent>
+	<DialogActions>
+		@if (_processing)
+		{
+			<MudProgressCircular Color="Color.Primary" Size="Size.Small" Indeterminate="true" />
+		}
+		else
+		{
+
+			<MudIconButton Size="Size.Large" Color="Color.Info" Icon="@Icons.Material.Filled.Save" Disabled="@(!success)" OnClick="SaveAsync" Title="Guardar" />
+		}
+			<MudIconButton Size="Size.Large" Color="Color.Info" Icon="@Icons.Material.Filled.Cancel" OnClick="Cancel" Title="Cancelar" />
+		</DialogActions>
+</MudDialog>

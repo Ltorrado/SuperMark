@@ -1,0 +1,47 @@
+﻿@namespace SuperMark.View.Pages.Sales.Dialog
+<MudDialog>
+	<DialogContent>
+		<MudContainer Style="overflow-y: scroll; max-height: 550px; max-width: 1600px">
+			<MudTable Items="@viewModel.ProductsCart" Dense="true" Hover="true" Bordered="true" Striped="true">
+		
+				<HeaderContent>
+					<MudTh>Producto</MudTh>
+					<MudTh>Cantidad</MudTh>
+					<MudTh>Total</MudTh>
+					<MudTh>Accion</MudTh>
+
+				</HeaderContent>
+				<RowTemplate>
+					<MudTd DataLabel="Codigo">@context.Name</MudTd>
+					<MudTd DataLabel="Nombre"><MudNumericField Min="1" Max="9999" @bind-Value="@context.Quantity" ></MudNumericField></MudTd>
+					<MudTd DataLabel="Total">@(context.Price * context.Quantity ) </MudTd>
+					<MudTd>
+						<MudButtonGroup Color="Color.Primary" Variant="Variant.Outlined">
+						
+							<MudIconButton Icon="@Icons.Material.Filled.Cancel" OnClick="((e)=> DeleteFromCart(context))" Color="@Color.Error" />
+
+						</MudButtonGroup>
+					</MudTd>
+
+				</RowTemplate>
+
+			</MudTable>
+
+
+		</MudContainer>
+	</DialogContent>
+	<DialogActions>
+		<MudText Typo="Typo.body1" Style="font-weight:600">Total: $ @viewModel.ProductsCart.Sum(x => x.Price * x.Quantity) </MudText>
+
+		@if (_processing)
+		{
+			<MudProgressCircular Color="Color.Primary" Size="Size.Small" Indeterminate="true" />
+		}
+		else
+		{
+
+			<MudIconButton Size="Size.Large" Color="Color.Info" Icon="@Icons.Material.Filled.Save" OnClick="SaveAsync" Title="Guardar" />
+		}
+		<MudIconButton Size="Size.Large" Color="Color.Info" Icon="@Icons.Material.Filled.Cancel" OnClick="Cancel" Title="Cancelar" />
+	</DialogActions>
+</MudDialog>

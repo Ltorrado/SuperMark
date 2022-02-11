@@ -1,0 +1,36 @@
+﻿@page "/masterView"
+
+
+<MudTable Items="@viewmodel.ProductsList" Dense="true" Hover="true" Bordered="true" Striped="true">
+	<ToolBarContent>
+		<MudButton Variant="Variant.Outlined" OnClick="ShowDialog"><MudIcon Icon="@Icons.Material.Filled.Add"></MudIcon></MudButton>
+		<MudSpacer />
+
+	</ToolBarContent>
+	<HeaderContent>
+		<MudTh>Codigo</MudTh>
+		<MudTh>Nombre</MudTh>
+		<MudTh>Descripcion</MudTh>
+		<MudTh>Precio</MudTh>
+		<MudTh>Accion</MudTh>
+	</HeaderContent>
+	<RowTemplate>
+		<MudTd DataLabel="Codigo">@context.Code</MudTd>
+		<MudTd DataLabel="Nombre">@context.Name</MudTd>
+		<MudTd DataLabel="Descripcion">@context.Description</MudTd>
+		<MudTd DataLabel="Precio">@context.Price</MudTd>
+		<MudTd DataLabel="Accion">
+			<MudButtonGroup Color="Color.Primary" Variant="Variant.Outlined">
+				<MudIconButton Icon="@Icons.Material.Filled.Edit" OnClick="((e) => ShowDialogModify(context))"></MudIconButton>
+				<MudIconButton Icon="@Icons.Material.Filled.Cancel" OnClick="((e)=> Delete(context))" Color="@Color.Error"
+														 />
+		
+			</MudButtonGroup>
+
+		</MudTd>
+	</RowTemplate>
+	<PagerContent>
+		<MudTablePager />
+	</PagerContent>
+</MudTable>
+

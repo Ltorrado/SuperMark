@@ -1,0 +1,28 @@
+﻿@inherits LayoutComponentBase
+
+<div class="page">
+	<div class="sidebar">
+		<NavMenu />
+	</div>
+
+	<div class="main">
+		<div class="top-row px-4">
+			@if (appstate?.User?.Profile == "comprador")
+			{
+				<MudButton OnClick="ShowCart">
+					<MudBadge Content="appstate._counter" Color="Color.Primary" Overlap="true" Class="mx-6 my-4">
+						<MudIcon Icon="@Icons.Material.Filled.ShoppingCart" Color="Color.Default" />
+					</MudBadge>
+				</MudButton>
+				}
+				<MudText>@appstate?.User?.Name </MudText>
+				<MudButton OnClick="logout"><MudIcon Icon="@Icons.Material.Filled.Logout" Title="salir" Color="Color.Default" /></MudButton>
+
+
+			</div>
+
+		<div class="content px-4">
+			@Body
+		</div>
+	</div>
+</div>

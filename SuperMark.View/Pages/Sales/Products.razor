@@ -1,0 +1,43 @@
+﻿@page "/Products"
+
+
+
+<MudGrid>
+	<MudItem xs="12" sm="12" md="11" Class="pl-8">
+		<MudTextField T="string" Placeholder="buscar" Immediate="true" ValueChanged="((e)=> {viewModel.ProducFilter= viewModel.ProductsList.Where(x => x.Code.ToLower().Contains(e.ToLower() )|| x.Name.ToLower().Contains(e.ToLower() )).ToList();     })" Adornment="Adornment.End" AdornmentIcon="icon-Buscar" IconSize="Size.Medium" Class="mt-0"></MudTextField>
+	</MudItem>
+
+	@foreach (var item in viewModel?.ProducFilter)
+	{
+		<MudItem xs="3">
+			<MudCard>
+				<MudCardMedia Image="@CheckImagenExist(item.Img)"  Height="200" />
+				<MudCardContent>
+					<MudText Typo="Typo.h5">@item.Name</MudText>
+					<MudText Typo="Typo.body2">@item.Description</MudText>
+					<MudText Typo="Typo.body1" Style="font-weight:600">$ @item.Price.ToString("N0")</MudText>
+				</MudCardContent>
+				<MudCardActions>
+					<MudButton Variant="Variant.Text" Color="Color.Primary" OnClick="((e) => BuyAsync(item))">Comprar</MudButton>
+					<MudButton Variant="Variant.Text" Color="Color.Primary" OnClick="((e) => addToCart(item))" ><MudIcon Icon="@Icons.Material.Filled.AddShoppingCart" Style="font-size: 1.5rem;" /></MudButton>
+					<MudButtonGroup Color="Color.Primary" Variant="Variant.Text">
+						<MudButton OnClick="((e)=> Add(false,item))">-</MudButton>
+						<MudButton>@item.Quantity</MudButton>
+						<MudButton OnClick="((e)=> Add(true,item))">+</MudButton>
+					</MudButtonGroup>
+				</MudCardActions>
+
+			</MudCard>
+
+		</MudItem>
+	}
+
+
+
+
+
+
+
+
+</MudGrid>
+
